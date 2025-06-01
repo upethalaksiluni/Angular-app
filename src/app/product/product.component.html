@@ -1,3 +1,25 @@
-<p>price: {{product.price}} </p>
+<!-- <p class="text-styles">price: {{product.price}} </p>
 <p>Product Name : {{product.productName}} </p>
-<p>Stock Count : {{product.stockCount}} </p>
+<p>Stock Count : {{product.stockCount}} </p> -->
+
+<img [src]="imgURL">
+<p>Produt Name : {{productName}}</p>
+<p>Product Price : {{productPrice}}</p>
+
+<p>Discounted Price : {{ getDiscountedPrice() }}</p>
+
+<button [disabled]="getIsInStock()">Add to cart</button>
+<br>
+<br>
+
+<input [value]="inputValue" (input)="onTyping($event)">
+
+<p>{{inputValue}}</p>
+
+
+<br>
+
+<input [(ngModel)]="secondInput">
+
+<p>Displaying Second Input : {{secondInput}}</p>
+
