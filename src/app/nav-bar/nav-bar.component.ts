@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { RedHighlightDirective } from "../directives/red-highlight.directive";
 
 
 
@@ -7,7 +8,7 @@ import { RouterModule } from "@angular/router";
     {
         selector: 'app-nav-bar',
         templateUrl: './nav-bar.component.html',
-        imports:[RouterModule]
+        imports:[RouterModule, RedHighlightDirective]
     }
 )
 export class NavBarComponent {
