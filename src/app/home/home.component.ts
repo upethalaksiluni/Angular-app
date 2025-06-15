@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { LoggerService } from '../Services/logger.service';
-import { CartService } from '../Services/cart.service';
+import { LoggerService } from '../services/logger.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -40,6 +40,17 @@ export class HomeComponent {
     
 
     let count = this.cartService.count() + 1;
+    
+    this.cartService.count.set(count);
+}
+
+decrement() {
+    this.loggerService.log("Decrement clicked");
+    
+    console.log(this.cartService.count());
+    
+
+    let count = this.cartService.count() - 1;
     
     this.cartService.count.set(count);
 }
