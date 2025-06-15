@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LoggerService } from '../Services/logger.service';
+import { CartService } from '../Services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -8,4 +10,37 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(public cartService: CartService) {}
+
+  loggerService = inject(LoggerService);
+
+  ngOnInit() {
+    console.log("Home component initialized");
+  }
+  
+  ngOnDestroy() {
+    console.log("Home component destroyed"); 
+  }
+
+  ngDoCheck() {
+    console.log("Home component changed detection triggered");
+  }
+
+  ngOnChanges() {
+    console.log("Home component changes dectected");
+  }
+
+  count=0;
+  
+
+  increment() {
+    this.loggerService.log("Increment clicked");
+    
+    console.log(this.cartService.count());
+    
+
+    let count = this.cartService.count() + 1;
+    
+    this.cartService.count.set(count);
+}
 }
