@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../modals/product';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +14,12 @@ import { RedHighlightDirective } from '../directives/red-highlight.directive';
 export class ProductComponent {
 
     @Input() product!: Product;
+
+    @Output() productOutput = new EventEmitter<Product>();
+
+    addToCart(){
+      this.productOutput.emit(this.product);
+    }
   
 
 }

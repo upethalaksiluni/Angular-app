@@ -1,10 +1,15 @@
-<div class="card" style="width: 18rem;">
-  <img [src]="product.imgUrl" class="card-img-top" [alt]="product.productName">
-  <div class="card-body">
-    <h5 class="card-title">{{ product.productName }}</h5>
-    <p class="card-text">
-      <strong>Description: </strong>{{product.description}}</p>
-    <p class="card-text"><strong>Stock: </strong>{{ product.stockCount }}</p>
-    <a href="#" class="btn btn-primary">Add to cart</a>
-  </div>
+<div class="all px-3 py-5">
+    <div class="card" style="width: auto; height: 700px;">
+    <img [src]="product.imgUrl" class="card-img-top" [alt]="product.productName">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.productName }}</h5>
+        <p class="card-text">
+        <strong>Description: </strong>{{product.description}}</p>
+        <p class="card-text"><strong>Stock: </strong>{{ product.stockCount }}</p>
+        <button class="btn btn-primary w-100 p-3"
+            [disabled]="product.stockCount === 0"
+            (click)="addToCart()">
+            Add to cart</button>
+    </div>
+    </div>
 </div>
